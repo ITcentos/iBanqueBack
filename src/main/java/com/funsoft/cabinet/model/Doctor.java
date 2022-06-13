@@ -35,4 +35,5 @@ public class Doctor {
     @JsonBackReference
     @OneToMany(mappedBy = "doctor",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private List<Pointment> pointments;
+    private String ABC;
 }
