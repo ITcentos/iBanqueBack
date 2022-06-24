@@ -12,7 +12,6 @@ import javax.persistence.*;
 @NoArgsConstructor
 @DiscriminatorValue("A")
 public class Agent extends User{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+
+    private int matricule;
 }

@@ -12,7 +12,6 @@ import javax.persistence.*;
 @NoArgsConstructor
 @DiscriminatorValue("C")
 public class Client extends User{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+
+    private long cin;
 }
