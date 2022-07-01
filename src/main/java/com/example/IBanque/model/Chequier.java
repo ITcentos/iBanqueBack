@@ -10,9 +10,33 @@ import java.util.Date;
 public class Chequier {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
-    private long IdChequier;
+    private long idChequier;
     @NotBlank
-    private Date DateChequier;
+    private Date dateChequier;
     @ManyToOne
     private Compte compte;
+
+    public long getIdChequier() {
+        return idChequier;
+    }
+
+    public void setIdChequier(long idChequier) {
+        this.idChequier = idChequier;
+    }
+
+    public Date getDateChequier() {
+        return dateChequier;
+    }
+
+    public void setDateChequier(Date dateChequier) {
+        this.dateChequier = dateChequier;
+    }
+
+    public Compte getCompte() {
+        return compte;
+    }
+
+    public void setCompte(Compte compte) {
+        this.compte = compte;
+    }
 }

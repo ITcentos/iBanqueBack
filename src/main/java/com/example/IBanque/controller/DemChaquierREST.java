@@ -16,7 +16,7 @@ public class DemChaquierREST {
     @Autowired
     DemChequierService demChequierService;
     @PostMapping("/demandeChaquier")
-    public DemChequier save_doctor(@Valid @RequestBody DemChequier demChequier){
+    public DemChequier save_demande(@Valid @RequestBody DemChequier demChequier){
         return demChequierService.saveourupdate(demChequier);
     }
 
