@@ -6,8 +6,8 @@ import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
-@Inheritance(strategy=InheritanceType.TABLE_PER_CLASS)
-public abstract class Demande {
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
+public  class Demande {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     private long Reference;
@@ -20,5 +20,12 @@ public abstract class Demande {
 
     @NotBlank
     private Date DateCeation;
+
+    @ManyToOne
+    User user;
+
+
+
+
 
 }
