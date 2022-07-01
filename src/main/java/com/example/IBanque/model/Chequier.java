@@ -6,26 +6,13 @@ import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
-@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
-public  class Demande {
+@Table(name="Chequier")
+public class Chequier {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
-    private long Reference;
+    private long IdChequier;
     @NotBlank
-    @Size(max=20)
-    private String Libelle;
-    @NotBlank
-    @Size(max=20)
-    private String Statut;
-
-    @NotBlank
-    private Date DateCeation;
-
+    private Date DateChequier;
     @ManyToOne
-    User user;
-
-
-
-
-
+    private Compte compte;
 }
