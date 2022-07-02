@@ -1,10 +1,17 @@
 package com.example.IBanque.model;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import java.util.Date;
 
 @Entity
+@Setter
+@Getter
+@NoArgsConstructor
 @Table(name="Credit")
 public class Credit {
     @Id
@@ -15,27 +22,5 @@ public class Credit {
     @ManyToOne
     private Compte compte;
 
-    public long getIdCredit() {
-        return idCredit;
-    }
 
-    public void setIdCredit(long idCredit) {
-        this.idCredit = idCredit;
-    }
-
-    public Date getDateCredit() {
-        return dateCredit;
-    }
-
-    public void setDateCredit(Date dateCredit) {
-        this.dateCredit = dateCredit;
-    }
-
-    public Compte getCompte() {
-        return compte;
-    }
-
-    public void setCompte(Compte compte) {
-        this.compte = compte;
-    }
 }

@@ -1,14 +1,13 @@
 package com.example.IBanque.model;
 
 import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import java.util.HashSet;
-import java.util.Set;
+import javax.persistence.DiscriminatorValue;
+import javax.persistence.Entity;
 
 @Entity
+@DiscriminatorValue("C")
 public class Client extends User {
+    private int numCompte;
 
 
 

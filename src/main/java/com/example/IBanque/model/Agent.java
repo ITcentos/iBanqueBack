@@ -5,6 +5,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@DiscriminatorValue("A")
 public class Agent  extends User {
+    private int matricule;
 
 }
