@@ -1,5 +1,9 @@
 package com.example.IBanque.model;
 
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -8,6 +12,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
+@Setter
+@Getter
+@NoArgsConstructor
 @Table(name="Forum")
 public class Forum {
     @Id
@@ -29,44 +36,4 @@ public class Forum {
             inverseJoinColumns = @JoinColumn(name = "user_id")
     )
     private Set<User> Users = new HashSet<>();
-
-    public long getIdForum() {
-        return idForum;
-    }
-
-    public void setIdForum(long idForum) {
-        this.idForum = idForum;
-    }
-
-    public String getSujet() {
-        return sujet;
-    }
-
-    public void setSujet(String sujet) {
-        this.sujet = sujet;
-    }
-
-    public Date getDateCeation() {
-        return dateCeation;
-    }
-
-    public void setDateCeation(Date dateCeation) {
-        this.dateCeation = dateCeation;
-    }
-
-    public Date getDerniereMaj() {
-        return derniereMaj;
-    }
-
-    public void setDerniereMaj(Date derniereMaj) {
-        this.derniereMaj = derniereMaj;
-    }
-
-    public Set<User> getUsers() {
-        return Users;
-    }
-
-    public void setUsers(Set<User> users) {
-        Users = users;
-    }
 }
