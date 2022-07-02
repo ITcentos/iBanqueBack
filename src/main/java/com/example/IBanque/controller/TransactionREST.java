@@ -20,24 +20,24 @@ public class TransactionREST {
     @Autowired
     TransactionService transactionService;
 
-    @PostMapping("/forum")
+    @PostMapping("/Transaction")
     public Transaction save_Transaction(@Valid @RequestBody Transaction transaction){
         return transactionService.saveourupdate(transaction);
     }
 
-    @GetMapping("/forum/{id}")
-    public Optional<Transaction> get_demande(@PathVariable(value="id") Long id ){
+    @GetMapping("/Transaction/{id}")
+    public Optional<Transaction> get_Transaction(@PathVariable(value="id") Long id ){
 
         return  transactionService.find_transaction(id) ;
     }
 
-    @GetMapping("/allforum")
-    public List<Transaction> get_forums(){
+    @GetMapping("/allTransaction")
+    public List<Transaction> get_Transactions(){
         return  transactionService.FindAlltransactions() ;
     }
 
-    @DeleteMapping("/deleteforum/{id}")
-    public String delete_forums(@PathVariable(value="id") Long id ){
+    @DeleteMapping("/deleteTransaction/{id}")
+    public String delete_Transaction(@PathVariable(value="id") Long id ){
 
 
         transactionService.delete_transaction(id); ;

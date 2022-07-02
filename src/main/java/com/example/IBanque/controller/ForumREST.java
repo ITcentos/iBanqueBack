@@ -25,7 +25,7 @@ public class ForumREST {
     }
 
     @GetMapping("/forum/{id}")
-    public Optional<Forum> get_demande(@PathVariable(value="id") Long id ){
+    public Optional<Forum> get_forum(@PathVariable(value="id") Long id ){
 
         return  forumService.find_forum(id) ;
     }
@@ -36,7 +36,7 @@ public class ForumREST {
     }
 
     @DeleteMapping("/deleteforum/{id}")
-    public String delete_forums(@PathVariable(value="id") Long id ){
+    public String delete_forum(@PathVariable(value="id") Long id ){
 
 
         forumService.delete_forum(id); ;

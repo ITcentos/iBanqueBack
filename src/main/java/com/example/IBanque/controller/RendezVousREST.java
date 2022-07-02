@@ -19,24 +19,24 @@ public class RendezVousREST {
     @Autowired
     RendezVousService rendezVousService;
 
-    @PostMapping("/forum")
-    public RendezVous save_forum(@Valid @RequestBody RendezVous rendezVous){
+    @PostMapping("/rendezvous")
+    public RendezVous save_rendezvous(@Valid @RequestBody RendezVous rendezVous){
         return rendezVousService.saveourupdate(rendezVous);
     }
 
-    @GetMapping("/forum/{id}")
-    public Optional<RendezVous> get_demande(@PathVariable(value="id") Long id ){
+    @GetMapping("/rendezvous/{id}")
+    public Optional<RendezVous> get_rendezvous(@PathVariable(value="id") Long id ){
 
         return  rendezVousService.find_rendezvous(id) ;
     }
 
-    @GetMapping("/allforum")
-    public List<RendezVous> get_forums(){
+    @GetMapping("/allrendezvous")
+    public List<RendezVous> get_rendezvouss(){
         return  rendezVousService.FindAllrendezvous() ;
     }
 
-    @DeleteMapping("/deleteforum/{id}")
-    public String delete_forums(@PathVariable(value="id") Long id ){
+    @DeleteMapping("/deleterendezvous/{id}")
+    public String delete_rendezvous(@PathVariable(value="id") Long id ){
 
 
         rendezVousService.delete_rendezvous(id); ;

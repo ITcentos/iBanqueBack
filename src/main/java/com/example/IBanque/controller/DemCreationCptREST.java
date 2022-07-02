@@ -19,23 +19,23 @@ public class DemCreationCptREST {
     DemCreationCPTService demCreationCPTService;
 
     @PostMapping("/demandeCreationCPT")
-    public DemCreationCPT save_demande(@Valid @RequestBody DemCreationCPT demCreationCPT){
+    public DemCreationCPT save_demandeCreCPT(@Valid @RequestBody DemCreationCPT demCreationCPT){
         return demCreationCPTService.saveourupdate(demCreationCPT);
     }
 
     @GetMapping("/demandeCreationCPT/{id}")
-    public Optional<DemCreationCPT> get_demande(@PathVariable(value="id") Long id ){
+    public Optional<DemCreationCPT> get_demandeCreCPT(@PathVariable(value="id") Long id ){
 
         return  demCreationCPTService.find_demande(id) ;
     }
 
     @GetMapping("/allDemandeCreationCPT")
-    public List<DemCreationCPT> get_demandes(){
+    public List<DemCreationCPT> get_demandeCreCPTs(){
         return  demCreationCPTService.FindAllDem() ;
     }
 
     @DeleteMapping("/deleteDemandeCreationCPT/{id}")
-    public String delete_demande(@PathVariable(value="id") Long id ){
+    public String delete_demandeCreCPT(@PathVariable(value="id") Long id ){
 
 
         demCreationCPTService.delete_demande(id) ;

@@ -18,24 +18,24 @@ public class DemCreditREST {
     @Autowired
     DemCreditService demCreditService;
 
-    @PostMapping("/demandeCreationCPT")
-    public DemCredit save_demande(@Valid @RequestBody DemCredit demCredit){
+    @PostMapping("/demandeCredit")
+    public DemCredit save_demandeCredit(@Valid @RequestBody DemCredit demCredit){
         return demCreditService.saveourupdate(demCredit);
     }
 
-    @GetMapping("/demandeCreationCPT/{id}")
-    public Optional<DemCredit> get_demande(@PathVariable(value="id") Long id ){
+    @GetMapping("/demandeCredit/{id}")
+    public Optional<DemCredit> get_demandeCredit(@PathVariable(value="id") Long id ){
 
         return  demCreditService.find_demande(id) ;
     }
 
-    @GetMapping("/allDemandeCreationCPT")
-    public List<DemCredit> get_demandes(){
+    @GetMapping("/alldemandeCredit")
+    public List<DemCredit> get_demandeCredits(){
         return  demCreditService.FindAllDem() ;
     }
 
-    @DeleteMapping("/deleteDemandeCreationCPT/{id}")
-    public String delete_demande(@PathVariable(value="id") Long id ){
+    @DeleteMapping("/deletedemandeCredit/{id}")
+    public String delete_demandeCredit(@PathVariable(value="id") Long id ){
 
 
         demCreditService.delete_demande(id) ;
