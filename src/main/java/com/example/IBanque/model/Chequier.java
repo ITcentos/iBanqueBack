@@ -22,5 +22,4 @@ public class Chequier {
     private Date dateChequier;
     @ManyToOne
     private Compte compte;
-
 }
