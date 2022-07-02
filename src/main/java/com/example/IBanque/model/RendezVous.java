@@ -22,27 +22,4 @@ public class RendezVous {
     @ManyToOne
     private User user;
 
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
-    public Date getDateRDV() {
-        return dateRDV;
-    }
-
-    public void setDateRDV(Date dateRDV) {
-        this.dateRDV = dateRDV;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 }
