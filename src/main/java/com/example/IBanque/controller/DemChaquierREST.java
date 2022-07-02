@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/api/v1")
 @CrossOrigin(origins = "*",allowedHeaders = "*")
 public class DemChaquierREST {
     @Autowired

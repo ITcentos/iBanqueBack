@@ -9,6 +9,7 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 @Entity
@@ -42,4 +43,7 @@ public  class Compte {
     @ManyToOne
     private User user;
 
+    public Optional<Compte> map(Object o) {
+        return null;
+    }
 }
