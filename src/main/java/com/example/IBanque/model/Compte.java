@@ -7,7 +7,6 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
@@ -36,6 +35,7 @@ public  class Compte {
     @OneToMany(mappedBy = "compte")
     Set<Transaction> transactions = new HashSet<>();
 
+
     @OneToMany(mappedBy = "compte")
     Set<Chequier> Chequiers = new HashSet<>();
     @OneToMany(mappedBy = "compte")
@@ -44,6 +44,6 @@ public  class Compte {
     private User user;
 
     public Optional<Compte> map(Object o) {
-        return null;
+       return null;
     }
 }

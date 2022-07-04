@@ -17,18 +17,18 @@ public class EpragneService {
     @Autowired
     EpargneRepository epargneRepository;
 
-
-
     public Epargne saveourupdate(Epargne epargne) {
-        return (Epargne) epargneRepository.save(epargne);
+        return epargneRepository.save(epargne);
     }
 
     public Optional<Epargne> find_epargne(long id) {
         return epargneRepository.findById(id);
     }
+
     public void delete_epargne(long id) {
         epargneRepository.deleteById(id);
     }
+
     public List<Epargne> FindAllepargnes() {
         return epargneRepository.findAll();
     }
