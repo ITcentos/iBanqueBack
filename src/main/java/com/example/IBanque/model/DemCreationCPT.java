@@ -6,6 +6,4 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-public class DemCreationCPT extends Demande{
-
-}
+public class DemCreationCPT extends Demande{}
