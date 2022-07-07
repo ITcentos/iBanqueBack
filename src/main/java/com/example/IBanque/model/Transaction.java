@@ -15,19 +15,38 @@ import java.util.Set;
 @Setter
 @Getter
 @NoArgsConstructor
-@Table(name="Transaction")
+@Table
 public class Transaction {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     private long idTransaction;
     @NotBlank
     private Date dateTransaction;
-    @NotBlank
-    private String typeTransaction;
+    private int montantDebite;
+    private int montantCredite;
+    private String motif;
+    private String typeUser;
+    @Enumerated(EnumType.STRING)
+    private eTransaction transac;
+
+    public Transaction(long idTransaction, Date dateTransaction, int montantDebite, int montantCredite, String motif, String typeUser, eTransaction transac, User user, Compte compteA, Compte compteB) {
+        this.idTransaction = idTransaction;
+        this.dateTransaction = dateTransaction;
+        this.montantDebite = montantDebite;
+        this.montantCredite = montantCredite;
+        this.motif = motif;
+        this.typeUser = typeUser;
+        this.transac = transac;
+        this.user = user;
+        this.compteA = compteA;
+        this.compteB = compteB;
+    }
 
     @ManyToOne
     private User user;
     @ManyToOne
-    private Compte compte;
+    private Compte compteA;
+    @ManyToOne
+    private Compte compteB;
 
 }
