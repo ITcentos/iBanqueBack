@@ -1,7 +1,7 @@
 package com.example.IBanque.controller;
 
 import com.example.IBanque.model.Courant;
-import com.example.IBanque.model.Epargne;
+
 import com.example.IBanque.service.CourantService;
 import com.example.IBanque.service.EpragneService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +28,28 @@ public class CourantRest {
     public Courant save_courant(@Valid @RequestBody Courant courant){
         return courantService.saveourupdate(courant);
     }
+    @PostMapping("/versement/{id}/{montant}")
+        public Courant crediter_courant( @PathVariable double montant ,long id  ){
+        Optional<Courant> cour =courantService.find_courant(id);
+        if (cour != null ){
+            cour.get().setArgent(cour.get().getArgent()+(montant));
+            courantService.saveourupdate(cour.get());
+            return cour.get();
+        }else
+            return null ;
+
+    }
+    @PostMapping("/virement/{id}/{montant}")
+    public Courant débiter_courant( @PathVariable double montant ,long id  ){
+        Optional<Courant> cour =courantService.find_courant(id);
+        if (cour != null ){
+            cour.get().setArgent(cour.get().getArgent()-(montant));
+            courantService.saveourupdate(cour.get());
+            return cour.get();
+        }else
+            return null ;
+
+    }
 
     @GetMapping("/Courant/{id}")
     public Optional<Courant> get_courant(@PathVariable(value="id") Long id ){
@@ -41,12 +63,12 @@ public class CourantRest {
         return  courantService.FindAllcourants();
     }
 
-    @DeleteMapping("/deleteeparne/{id}")
-    public String delete_epargne(@PathVariable(value="id") Long id ){
+    @DeleteMapping("/deletecourant/{id}")
+    public String delete_courant(@PathVariable(value="id") Long id ){
 
 
         courantService.delete_courant(id); ;
-        return " compte Epargne num "+id +" is deleted  successfully ";
+        return " compte courant num "+id +" is deleted  successfully ";
 
     }
 }
