@@ -12,7 +12,6 @@ import javax.validation.constraints.Size;
 import java.util.HashSet;
 import java.util.Set;
 
-
 @Entity
 @Setter
 @Getter
@@ -20,12 +19,14 @@ import java.util.Set;
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name="User_type")
 public  class User {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @NotBlank
     @Size(max=20)
+    @Column(unique=true)
     private String username;
     @NotBlank
     @Size(max = 50)
@@ -50,7 +51,6 @@ public  class User {
 
     @OneToMany(mappedBy = "user")
     Set<Compte> Comptes = new HashSet<>();
-
 
     @OneToMany(mappedBy = "user")
     Set<RendezVous> RendezVous = new HashSet<>();

@@ -24,12 +24,17 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void delete_doctor(long id) {
+    public void delete_user(long id) {
     userRepo.deleteById(id);
     }
 
     @Override
     public List<User> list_users() {
        return (List<User>) userRepo.findAll();
+    }
+
+    @Override
+    public List<User> findByUsername(String username) {
+        return  userRepo.findByUsername(username);
     }
 }
