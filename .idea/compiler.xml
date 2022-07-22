@@ -8,12 +8,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="Ibanque-master" />
-        <module name="IBanque" />
         <module name="Ibanque" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Ibanque" target="11" />
+      <module name="IBanque" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
