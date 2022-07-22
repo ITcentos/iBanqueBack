@@ -2,7 +2,6 @@ package com.example.IBanque.controller;
 
 
 import com.example.IBanque.model.Epargne;
-import com.example.IBanque.service.DemChequierService;
 import com.example.IBanque.service.EpragneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -25,6 +24,29 @@ public class EpargneREST {
         return epragneService.saveourupdate(epargne);
     }
 
+    @PostMapping("/versement/{id}/{montant}")
+    public Epargne créditer_epargne( @PathVariable double montant ,long id  ){
+        Optional<Epargne> epar =epragneService.find_epargne(id);
+        if (epar != null ){
+            epar.get().setArgent(epar.get().getArgent()+(montant));
+            epragneService.saveourupdate(epar.get());
+            return epar.get();
+        }else
+            return null ;
+
+    }
+    @PostMapping("/virement/{id}/{montant}")
+    public Epargne débiter_epargne( @PathVariable double montant ,long id  ){
+        Optional<Epargne> epar =epragneService.find_epargne(id);
+        if (epar != null ){
+            epar.get().setArgent(epar.get().getArgent()-(montant));
+            epragneService.saveourupdate(epar.get());
+            return epar.get();
+        }else
+            return null ;
+
+    }
+
     @GetMapping("/Epargne/{id}")
     public Optional<Epargne> get_epargne(@PathVariable(value="id") Long id ){
 
@@ -33,6 +55,7 @@ public class EpargneREST {
 
     @GetMapping("/allepargnes")
     public List<Epargne> get_epargnes(){
+
         return  epragneService.FindAllepargnes() ;
     }
 
@@ -40,7 +63,7 @@ public class EpargneREST {
     public String delete_epargne(@PathVariable(value="id") Long id ){
 
 
-        epragneService.delete_epargne(id); ;
+        epragneService.delete_epargne(id);
         return " compte Epargne num "+id +" is deleted  successfully ";
 
     }

@@ -3,7 +3,6 @@ package com.example.IBanque.model;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -34,8 +33,6 @@ public  class Compte {
     private long cinUser;
     @OneToMany(mappedBy = "compte")
     Set<Transaction> transactions = new HashSet<>();
-
-
     @OneToMany(mappedBy = "compte")
     Set<Chequier> Chequiers = new HashSet<>();
     @OneToMany(mappedBy = "compte")
