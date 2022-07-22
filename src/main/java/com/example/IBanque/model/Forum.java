@@ -18,7 +18,7 @@ import java.util.Set;
 @Table(name="Forum")
 public class Forum {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idForum;
     @NotBlank
     @Size(max=20)

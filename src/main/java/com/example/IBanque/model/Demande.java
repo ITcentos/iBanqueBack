@@ -16,7 +16,7 @@ import java.util.Date;
 @Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public  class Demande {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long reference;
     @NotBlank
     @Size(max=20)
