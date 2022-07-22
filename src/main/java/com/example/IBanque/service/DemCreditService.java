@@ -18,7 +18,7 @@ public class DemCreditService {
     DemCreditRepository demCreditRepository;
 
     public DemCredit saveourupdate(DemCredit demCredit) {
-        return (DemCredit) demCreditRepository.save(demCredit);
+        return (DemCredit) demCreditRepository.saveAndFlush(demCredit);
     }
 
     public Optional<DemCredit> find_demande(long id) {
