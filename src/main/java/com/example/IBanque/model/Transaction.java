@@ -18,7 +18,7 @@ import java.util.Set;
 @Table
 public class Transaction {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idTransaction;
     @NotBlank
     private Date dateTransaction;
@@ -35,11 +35,9 @@ public class Transaction {
         this.montantDebite = montantDebite;
         this.montantCredite = montantCredite;
         this.motif = motif;
-        this.typeUser = typeUser;
         this.transac = transac;
-        this.user = user;
-        this.compteA = compteA;
-        this.compteB = compteB;
+
+
     }
 
     @ManyToOne

@@ -15,7 +15,7 @@ import java.util.Date;
 @Table(name="Credit")
 public class Credit {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idCredit;
     @NotBlank
     private Date dateCredit;

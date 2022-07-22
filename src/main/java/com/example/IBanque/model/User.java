@@ -21,7 +21,7 @@ import java.util.Set;
 @DiscriminatorColumn(name="User_type")
 public  class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
     @NotBlank

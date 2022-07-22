@@ -16,7 +16,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class Chequier {
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idChequier;
     @NotBlank
     private Date dateChequier;

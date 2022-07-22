@@ -32,8 +32,8 @@ public  class Compte {
     @NotBlank
     @Size(max = 8)
     private long cinUser;
-    @OneToMany(mappedBy = "compte")
-    Set<Transaction> transactions = new HashSet<>();
+  //  @OneToMany(mappedBy = "compte")
+ //   Set<Transaction> transactions = new HashSet<>();
 
 
     @OneToMany(mappedBy = "compte")
