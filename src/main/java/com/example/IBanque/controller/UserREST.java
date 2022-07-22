@@ -13,34 +13,36 @@ import java.util.Optional;
 @RequestMapping("/api")
 @CrossOrigin(origins = "*",allowedHeaders = "*")
 public class UserREST {
-
     @Autowired
     UserService userservice;
    // private final UserRepository repository;
 
-   // UserREST(UserRepository repository) {
-     //   this.repository = repository;
-    //}
-
+   // UserREST(UserRepository repository) {//   this.repository = repository;//}
 
     @PostMapping("/users/save")
     public User save_user( @RequestBody User user){
         return userservice.saveourupdate(user);
     }
 
-    @GetMapping("/users/get-all")
+    @GetMapping("/users/getall")
     public List<User> list_users(){
         return userservice.list_users();
     }
 
-
     @GetMapping("/users/{id}")
     public Optional<User> get_user(@PathVariable("id") long id) {
         Optional<User> user = userservice.find_user(id);
-
         return user;
     }
+    @DeleteMapping ("/userDelete/{id}")
+    public void delete_user(@PathVariable("id") long id) {
+       userservice.delete_user(id) ;
+   }
 
-
-
+    @GetMapping("/users/findbyusername/{username}")
+    public List<User> findByUsername(@PathVariable("username") String username)
+    {
+        List<User> user = userservice.findByUsername(username);
+        return user;
+    }
 }
