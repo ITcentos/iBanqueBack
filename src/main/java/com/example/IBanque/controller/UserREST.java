@@ -40,9 +40,9 @@ public class UserREST {
    }
 
     @GetMapping("/users/findbyusername/{username}")
-    public List<User> findByUsername(@PathVariable("username") String username)
+    Optional<User> findByUsername(@PathVariable("username") String username)
     {
-        List<User> user = userservice.findByUsername(username);
-        return user;
+      return userservice.findByUsername(username);
+
     }
 }

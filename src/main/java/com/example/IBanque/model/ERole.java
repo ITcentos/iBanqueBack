@@ -14,7 +14,7 @@ import java.util.stream.Stream;
 
 
 public enum ERole {
-    ROLE_USER("U"),
+   /* ROLE_USER("U"),
     ROLE_Agent("A"),
 
     ROLE_ADMIN("AD") ;
@@ -36,8 +36,9 @@ public enum ERole {
 
 
 
-
-
-
+*/
+   ROLE_USER,
+    ROLE_ADMIN,
+    ROLE_MANAGER
 
 }
