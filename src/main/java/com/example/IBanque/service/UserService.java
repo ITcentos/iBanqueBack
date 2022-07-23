@@ -12,6 +12,5 @@ public interface UserService {
     public void delete_user(long id);
 
     public List<User> list_users();
-    public List<User> findByUsername (String username) ;
-
+    public Optional<User> findByUsername(String username) ;
 }
