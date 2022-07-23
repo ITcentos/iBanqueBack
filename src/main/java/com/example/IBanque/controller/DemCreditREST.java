@@ -13,13 +13,14 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1")
+@CrossOrigin(origins = "*",allowedHeaders = "*")
 public class DemCreditREST {
 
     @Autowired
     DemCreditService demCreditService;
 
     @PostMapping("/demandeCredit")
-    public DemCredit save_demandeCredit(@Valid @RequestBody DemCredit demCredit){
+    public DemCredit save_demandeCredit(@RequestBody DemCredit demCredit){
         return demCreditService.saveourupdate(demCredit);
     }
 
