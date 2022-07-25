@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -15,14 +17,32 @@ import javax.validation.Valid;
 public class DemChaquierREST {
     @Autowired
     DemChequierService demChequierService;
-    @PostMapping("/demandeChaquier")
-    public DemChequier save_doctor(@Valid @RequestBody DemChequier demChequier){
+    @PostMapping("/demandecheq")
+    public DemChequier save_demande(@Valid @RequestBody DemChequier demChequier){
         return demChequierService.saveourupdate(demChequier);
     }
 
-    @GetMapping("/test")
-    public String save_doctor(){
-        return "test ok";
+    @GetMapping("/demandecheq/{id}")
+    public Optional<DemChequier> get_demande(@PathVariable(value="id") Long id ){
+
+        return  demChequierService.find_demande(id) ;
     }
+
+    @GetMapping("/alldemandecheq")
+    public List<DemChequier> get_demandes(){
+        return  demChequierService.FindAllDem() ;
+    }
+
+    @DeleteMapping("/deletedemandecheq/{id}")
+    public String delete_demande(@PathVariable(value="id") Long id ){
+
+
+        demChequierService.delete_demande(id) ;
+        return "Demande chequier num "+id +"is deleted  successfully ";
+
+    }
+
+
+
 
 }

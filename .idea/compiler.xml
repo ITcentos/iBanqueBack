@@ -11,10 +11,14 @@
         <module name="IBanque" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Ibanque" target="11" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="IBanque" options="-parameters" />
+      <module name="Ibanque" options="-parameters" />
       <module name="Ibanque-master" options="-parameters" />
     </option>
   </component>
