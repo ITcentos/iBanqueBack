@@ -72,7 +72,7 @@ public class AuthenticationRest {
                 encoder.encode(request.getPassword()));
 
         // la liste des roles
-        Set<String> subroles = request.getRole(); // récupérer les roles (String) as input
+      Set<String> subroles = request.getRole(); // récupérer les roles (String) as input
 
         Set<Role> roles = new HashSet<>();  // liste des roles à accorder ---> output
 
