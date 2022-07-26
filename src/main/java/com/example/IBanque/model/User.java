@@ -1,6 +1,7 @@
 package com.example.IBanque.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -9,6 +10,8 @@ import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -54,6 +57,10 @@ public  class User {
 
     @OneToMany(mappedBy = "user")
     Set<RendezVous> RendezVous = new HashSet<>();
+
+    @OneToMany(mappedBy = "user")
+    @JsonIgnore
+    private  Collection<Message> messages = new ArrayList<>();
 
     public User(String username,String email,String password){
         this.username = username;

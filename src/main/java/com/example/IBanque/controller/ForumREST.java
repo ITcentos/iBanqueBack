@@ -13,14 +13,14 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api")
 @CrossOrigin(origins = "*",allowedHeaders = "*")
 public class ForumREST {
 
     @Autowired
     ForumService forumService;
 
-    @PostMapping("/forum")
+    @PostMapping("/forum/save")
     public Forum save_forum(@Valid @RequestBody Forum forum){
         return forumService.saveourupdate(forum);
     }
@@ -31,12 +31,12 @@ public class ForumREST {
         return  forumService.find_forum(id) ;
     }
 
-    @GetMapping("/allforum")
+    @GetMapping("/forum/allforum")
     public List<Forum> get_forums(){
         return  forumService.FindAllforum() ;
     }
 
-    @DeleteMapping("/deleteforum/{id}")
+    @DeleteMapping("/forum/deleteforum/{id}")
     public String delete_forum(@PathVariable(value="id") Long id ){
 
 
@@ -44,4 +44,5 @@ public class ForumREST {
         return "Forum num "+id +" is deleted  successfully ";
 
     }
+
 }

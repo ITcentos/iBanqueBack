@@ -1,8 +1,7 @@
 package com.example.IBanque.service;
 
-import com.example.IBanque.model.DemCredit;
+
 import com.example.IBanque.model.Forum;
-import com.example.IBanque.repository.DemCreditRepository;
 import com.example.IBanque.repository.ForumRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

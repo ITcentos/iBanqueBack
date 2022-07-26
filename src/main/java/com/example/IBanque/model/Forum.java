@@ -1,5 +1,6 @@
 package com.example.IBanque.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -7,9 +8,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Entity
 @Setter
@@ -20,6 +19,8 @@ public class Forum {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long idForum;
+
+
     @NotBlank
     @Size(max=20)
     private String sujet;
@@ -30,10 +31,16 @@ public class Forum {
     @NotBlank
     private Date derniereMaj;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "user_forum",
-            joinColumns = @JoinColumn(name="forum_id"),
-            inverseJoinColumns = @JoinColumn(name = "user_id")
-    )
-    private Set<User> Users = new HashSet<>();
+    public Forum(long idForum, String sujet, Date dateCeation, Date derniereMaj) {
+        this.idForum = idForum;
+        this.sujet = sujet;
+        this.dateCeation = dateCeation;
+        this.derniereMaj = derniereMaj;
+    }
+
+    @OneToMany(mappedBy = "forum")
+    @JsonIgnore
+    //private  Collection<UserForum> messages = new ArrayList<>();
+    Set<Message> messages = new HashSet<>();
+
 }
